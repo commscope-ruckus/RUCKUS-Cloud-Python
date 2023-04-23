@@ -1,10 +1,10 @@
 # RUCKUS-Cloud-Python
 Python scripts examples for RUCKUS Cloud
 
-- Client Example v200104, Move APs and Toogle .11k & .11r use a deprecated API which uses API-KEY and cookies for authentication
-- JWT has examples using the new API using JSON Web Tokens for authentication
+- Client Example v200104, Move APs and Toogle .11k & .11r use a deprecated API with API-KEY and cookies for authentication.
+- JWT has examples with a new API using JSON Web Tokens for authentication
 
-# JWT
+# JWT Examples
 - rcExamplesJWT uses the module rcAPI.py to import several API calls using JWT.
 It fetches the tenantId and the JWT, then retrieves the tenant details and changes the 802.11k setting for all networks.
 
