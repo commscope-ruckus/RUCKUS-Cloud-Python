@@ -13,6 +13,12 @@ class RC_API_calls:
 		auth = {'Authorization': 'Bearer {}'.format(jwt)}
 		r = requests.get(url, verify=False, headers=auth).json()
 		return r
+	
+	def getVenues(self, host, tenantID, jwt):
+		url = "https://" + host + "/api/tenant/" + tenantID + "/venue"
+		reqHeaders = {'Authorization': 'Bearer {}'.format(jwt),'x-rks-tenantid': tenantID}
+		r = requests.get(url, verify=False, headers=reqHeaders).json()
+		return r
 
 	def getMspECs(self, host, tenantID, jwt):
 		url = "https://" + host + "/api/mspservice/tenant/" + tenantID + "/mspecaccounts"
@@ -34,6 +40,7 @@ class RC_API_calls:
 			r = requests.put(url, verify=False, headers=auth, json=network)
 			print('change response:', r)
 			self.wait_for_async_response(host, r, tenantID, jwt)
+		return 'SUCCESS'
 			
 	def wait_for_async_response(self, host, response, tenantID, jwt, sleep_time=3):
 		http_response = response.status_code
@@ -51,6 +58,7 @@ class RC_API_calls:
 					break
 				time.sleep(sleep_time)
 			except Exception as ex:
+				#print(ex)
 				print('retrying')
 				time.sleep(sleep_time)
 		if r['status'] != 'SUCCESS':
