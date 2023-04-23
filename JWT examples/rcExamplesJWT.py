@@ -6,7 +6,7 @@ Created on Wed Apr 19 17:30:28 2023
 @author: marcelo
 """
 
-from RCapi import RC_API_calls
+from rcAPI import RC_API_calls
 import warnings
 warnings.filterwarnings("ignore", message="Unverified HTTPS request")
 
@@ -19,8 +19,8 @@ response = rc.getToken(host, username, password)
 tenantId = response['tenantId']
 jwt = response['jwt']
 
-r = rc.getMspDetails(host, tenantId, jwt)
-s = rc.configure_802_11kr(host, tenantId, True, jwt)
+r = rc.getTenantDetails(host, tenantId, jwt)
+s = rc.configure_802_11k(host, tenantId, True, jwt)
 
 
 
