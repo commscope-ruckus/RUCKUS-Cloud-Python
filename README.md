@@ -9,4 +9,4 @@ Python scripts examples for RUCKUS Cloud
 It fetches the tenantId and the JWT, then retrieves the tenant details and changes the 802.11k setting for all networks.
 
 - rcAPI.py contains several API calls using JWT. It includes a function to detect if an API call is async, and if so, it uses the requestId to check the API call execution status.
-This module needs to be modified to allow management of delegated accounts. You need to add a new request header to the API calls with a key named x-rks-tenantid, and the value as the tenantId of the delegated account. See examples at the Postman collections in the RUCKUS-Cloud-Postman repository.
+This module needs to be modified to allow management of delegated accounts. You need to add a new request header to the API calls with a key named x-rks-tenantid, and the value as the tenantId of the delegated account. The function getVenues includes the additional header. See more examples at the Postman collections in the RUCKUS-Cloud-Postman repository.
